@@ -1,0 +1,261 @@
+body {
+  background: linear-gradient(to bottom, #0a0a1a, #1b1b2f);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Rain animation background */
+.background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+  pointer-events: none;
+
+  background: 
+     linear-gradient(90deg, #bedbec 0%, #abd6ee 40%, #9AD8FF 100%);
+
+  opacity: 0.9;
+}
+
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter:blur(15px);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.main-weather .temperature {
+  font-size: 80px;
+  font-weight: 600;
+}
+
+.main-weather .condition {
+  font-size: 30px;
+  color: #b0c4de;
+}
+
+.mini-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.forecast div {
+  flex: 1;
+  padding: 10px;
+}
+
+.forecast i {
+  font-size: 28px;
+  color: #8cc4ff;
+}
+
+.forecast-table {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* first row 5 items */
+    gap: 20px;
+    text-align: center;
+    padding: 20px;
+}
+
+.forecast-item {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 15px;
+    border-radius: 12px;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+
+
+.uv-bar {
+  width: 100%;
+  height: 10px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.uv-fill {
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(90deg, #00ff88, #ffcc00);
+  border-radius: 5px;
+}
+
+.compass {
+  font-size: 40px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-weather .temperature {
+    font-size: 60px;
+  }
+  .forecast {
+    flex-wrap: wrap;
+  }
+}
+
+
+/* SERACH BAR */
+/* Adapted from Uiverse.io (dark/glass version) */
+.loc {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* small circular icon on left */
+.loc .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  background: linear-gradient(135deg, rgba(125,211,252,0.14), rgba(96,165,250,0.10));
+  color: #001;
+  box-shadow: 0 6px 18px rgba(125,211,252,0.04);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* search input (based on the Uiverse style you pasted) */
+.search-input {
+  border: 2px solid transparent;
+  width: 100%;
+  max-width: 340px;        /* responsive limit — adjust as needed */
+  height: 42px;
+  padding-left: 12px;
+  padding-right: 12px;
+  outline: none;
+  overflow: hidden;
+  background-color: rgba(255,255,255,0.04); /* subtle glass */
+  color: #eaf6ff;         /* light text */
+  border-radius: 10px;
+  transition: all 0.35s ease;
+  font-weight: 600;
+  font-size: 14px;
+  -webkit-appearance: none;
+}
+
+/* button next to search */
+.btn-search {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:42px;
+  height:42px;
+  border-radius:10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  color: #bfefff;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+/* hover / focus styles */
+.search-input:hover,
+.search-input:focus {
+  border: 2px solid rgba(125,211,252,0.9); /* accent border */
+  box-shadow: 0 0 0 4px rgba(125,211,252,0.08);
+  background-color: rgba(255,255,255,0.06);
+  color: #ffffff;
+  
+}
+
+/* button hover */
+.btn-search:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(7,36,86,0.35);
+}
+
+/* small responsive tweak: on very small screens, reduce size */
+@media (max-width: 480px) {
+  .search-input { max-width: 220px; height: 38px; }
+  .loc .icon { width:36px; height:36px; font-size:16px; }
+  .btn-search { width:38px; height:38px; }
+}
+
+/* heading */
+/* Stylish heading for weather app (drop into your existing CSS) */
+.weather-heading {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 18px;
+  -webkit-user-select:none;
+  user-select: none;
+}
+
+/* container holding icon + title */
+.weather-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.03));
+  padding: 8px 18px;
+  border-radius: 999px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+/* gradient, slightly neon title text */
+.weather-h1 {
+  margin: 0;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1;
+  background: linear-gradient(90deg, #E6F6FF 0%, #B9E6FF 40%, #e1f1fc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 6px 18px rgba(0,24,56,0.35);
+  letter-spacing: 0.6px;
+  transform-origin: center;
+  animation: floatText 6s ease-in-out infinite;
+}
+
+/* subtitle under the title */
+.weather-sub {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: rgba(226, 239, 255, 0.7);
+  opacity: 0.95;
+}
+
+/* small gentle animation for heading */
+@keyframes floatText {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+
+/* animated rotating sun */
+.sun {
+  color: #FFD66B; /* fills the circle via currentColor */
+  filter: drop-shadow(0 6px 14px rgba(255,180,60,0.08));
+  animation: spinSun 12s linear infinite;
+  transform-origin: center;
+}
+@keyframes spinSun {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+  .weather-h1 { font-size: 26px; }
+  .weather-title { padding: 6px 12px; gap: 8px; }
+  .sun { width: 30px; height: 30px; }
+}
